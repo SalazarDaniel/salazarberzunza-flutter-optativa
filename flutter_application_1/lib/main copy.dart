@@ -18,7 +18,10 @@ class MainApp extends StatelessWidget {
         body: SingleChildScrollView(
           child: Column(
             children: [
-              Text(CustomInput),
+              Text(
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                "Formulario",
+              ),
               Container(
                 margin: EdgeInsets.all(16),
                 child: TextField(

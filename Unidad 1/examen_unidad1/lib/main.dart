@@ -1,16 +1,22 @@
 import 'package:flutter/material.dart';
 
+import 'core/theme.dart';
+import 'presentation/screens/login_screen.dart';
+
 void main() {
-  runApp(const MainApp());
+  runApp(const TiendaExamenApp());
 }
 
-class MainApp extends StatelessWidget {
-  const MainApp({super.key});
+class TiendaExamenApp extends StatelessWidget {
+  const TiendaExamenApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(body: Center(child: Text('Hello World!'))),
+    return MaterialApp(
+      title: 'Tienda Examen',
+      debugShowCheckedModeBanner: false,
+      theme: AppTheme.lightTheme,
+      home: const LoginScreen(),
     );
   }
 }

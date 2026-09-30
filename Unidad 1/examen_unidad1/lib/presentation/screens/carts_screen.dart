@@ -4,7 +4,7 @@ import '../../data/api_service.dart';
 import '../../data/models.dart';
 
 class CartsScreen extends StatefulWidget {
-  const CartsScreen({Key? key}) : super(key: key);
+  const CartsScreen({super.key});
 
   @override
   State<CartsScreen> createState() => _CartsScreenState();

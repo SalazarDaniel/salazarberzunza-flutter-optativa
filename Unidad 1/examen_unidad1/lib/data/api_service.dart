@@ -12,7 +12,7 @@ class ApiService {
     try {
       final response = await http
           .get(Uri.parse('$baseUrl/products'))
-          .timeout(const Duration(seconds: 3));
+          .timeout(const Duration(seconds: 10));
       if (response.statusCode == 200) {
         Iterable l = json.decode(response.body);
         return ApiResponse(
@@ -22,6 +22,7 @@ class ApiService {
       }
       throw Exception('Failed API');
     } catch (e) {
+      print('🔴 Error en getProducts: $e');
       Iterable l = json.decode(MockData.products);
       return ApiResponse(
         List<Product>.from(l.map((model) => Product.fromJson(model))),
@@ -34,12 +35,13 @@ class ApiService {
     try {
       final response = await http
           .get(Uri.parse('$baseUrl/products/$id'))
-          .timeout(const Duration(seconds: 3));
+          .timeout(const Duration(seconds: 10));
       if (response.statusCode == 200) {
         return ApiResponse(Product.fromJson(json.decode(response.body)), false);
       }
       throw Exception('Failed API');
     } catch (e) {
+      print('🔴 Error en getProductDetail: $e');
       return ApiResponse(
         Product.fromJson(json.decode(MockData.productDetail)),
         true,
@@ -51,7 +53,7 @@ class ApiService {
     try {
       final response = await http
           .get(Uri.parse('$baseUrl/carts'))
-          .timeout(const Duration(seconds: 3));
+          .timeout(const Duration(seconds: 10));
       if (response.statusCode == 200) {
         Iterable l = json.decode(response.body);
         return ApiResponse(
@@ -61,6 +63,7 @@ class ApiService {
       }
       throw Exception('Failed API');
     } catch (e) {
+      print('🔴 Error en getCarts: $e');
       Iterable l = json.decode(MockData.carts);
       return ApiResponse(
         List<Cart>.from(l.map((model) => Cart.fromJson(model))),

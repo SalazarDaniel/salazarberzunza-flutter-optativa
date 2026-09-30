@@ -8,7 +8,7 @@ void main() {
 }
 
 class TiendaExamenApp extends StatelessWidget {
-  const TiendaExamenApp({Key? key}) : super(key: key);
+  const TiendaExamenApp({super.key});
 
   @override
   Widget build(BuildContext context) {
